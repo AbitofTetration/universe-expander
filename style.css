@@ -1,0 +1,145 @@
+/* CSS files add styling rules to your content */
+@font-face {
+    font-family: "Typewriter";
+    src: url("../fonts/MonospaceTypewriter.ttf") format("ttf"),
+    url("../fonts/monospacetypewriter-webfont.woff") format("woff"),
+    url("../fonts/monospacetypewriter-webfont.woff2") format("woff2");
+}
+
+*{
+    display: "inline-block"
+}
+
+body, html{
+    font-family: "Typewriter", Helvetica, Arial, sans-serif;
+    background: lightgray
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
+
+#prestige {
+  color: magenta;
+  border-color: blue;
+  background-color: cyan
+}
+
+#prestigeGoal {
+  background-color: cyan
+}
+
+#prestigeDepth {
+  background-color: cyan
+}
+
+#hardReset {
+  color: red;
+  border-color: red;
+  background-color: white
+}
+
+.options {
+  color: blue;
+  border-color: blue;
+  background-color: white
+}
+
+#universeSlowDown {
+  color: #543210;
+}
+
+#prestigeDepths {
+  color: blue;
+  text-shadow: 0px 0px 7px blue;
+}
+
+#prestigeEff {
+  color: blue;
+  text-shadow: 0px 0px 7px blue;
+}
+
+#prestigePoints {
+  color: magenta;
+  text-shadow: 0px 0px 7px magenta;
+}
+
+#prestigeDiv {
+  color: gray
+}
+
+#respec {
+  color: magenta;
+  border-color: blue;
+  background-color: cyan
+}
+
+.prestUpgrs {
+  color: white;
+  border-color: white;
+  background-color: #9d00ff;
+}
+
+#quarksRed {
+  color: red;
+  text-shadow: 0px 0px 7px red;
+}
+
+#quarksRedMult {
+  color: red;
+  text-shadow: 0px 0px 7px red;
+}
+
+#quarksBlue {
+  color: blue;
+  text-shadow: 0px 0px 7px blue;
+}
+
+#quarksBlueMult {
+  color: blue;
+  text-shadow: 0px 0px 7px blue;
+}
+
+#quarksGreen {
+  color: green;
+  text-shadow: 0px 0px 7px green;
+}
+
+#quarksGreenMult {
+  color: green;
+  text-shadow: 0px 0px 7px green;
+}
+
+#quarks{
+  color: grey
+}
+
+#quarktabbtn {
+  background: repeating-linear-gradient(90deg,#0000FF,#0000FF 33%,#00FF00 66%,#FF0000);
+	background-size: contain;
+  color: white;
+	animation: qrk 3s linear infinite;
+	box-shadow: inset 0px 0px 12px 0px black;
+}
+
+@keyframes qrk { 
+	0%{
+	    background-position: 0% 0%, 0% 0%;
+	}
+	100%{
+	    background-position: 0% 0%, 200% 200%;
+	}
+}
+
+#hadrontabbtn, #buyBooster {
+  background: black;
+	border: 1px solid #e6a52e;
+  color: white;
+	box-shadow: inset 0px 0px 12px 0px black;
+}
+
+#hadronAmt, #hadronPower, #boosterAmt, #boosterPower {
+  color: #e6a52e;
+  text shadow: 0px 0px 14px #e6a52e;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Universe Expander</title>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/javascript/OmegaNum.js" defer></script>
+    <script src="/javascript/basis.js" defer></script>
+    <script src="/javascript/script.js" defer></script>
+  </head>  
+  <body>
+    <button onclick="hardReset()" class="options">HARD RESET</button>&nbsp;&nbsp;<button id="autosave" onclick="toggleAutosave()" class="options"></button>&nbsp;&nbsp;<button onclick="exportSave()" class="options">Export</button>&nbsp;&nbsp;<button onclick="importSave()" class="options">Import</button><br><br>
+    <table>
+      <tr>
+        <td><button onclick="showTab('main')">Main</button></td>
+        <td><button id="quarktabbtn" onclick="showTab('quarks')">Quarks</div></button></td>
+        <td><button id="hadrontabbtn" onclick="showTab('hadrons')">Hadrons</button></td>
+      </tr>
+    </table>
+    <div id="main" class="tab">
+      <span id="universeSlowDown"></span><br>
+      Your <span id="universeType"></span>universe is currently <span id="universeSize"></span> big.
+      <button id="prestige" onclick="prestige()">Reach <span id="prestigeGoal"></span> to reach depth <span id="prestigeDepth"></span> of prestige.</button><br><br>
+      <div id="prestigeDiv">
+        You have completed <span id="prestigeDepths"></span> prestige depths, translated to a <span id="prestigeEff"></span>x multiplier to universe growth speed.<br>
+
+        You have <span id="prestigePoints"></span> prestige points.<br>
+        <button id="unlockPrestUpgrs" onclick="unlockPrestigeUpgrades()" class="prestUpgrs">Unlock Prestige Upgrades.<br>Cost: 10 Prestige Points</button><br>
+      </div><br><br>
+      <div id="prestigeUpgrs">
+        <button id="respec" onclick="respecPrestUpgs()">Respec Prestige Upgrades</button><br><br>
+        <button id="prestUpgrs1" onclick="buyPrestUpgrs(1)" class="prestUpgrs">Subtract <span id="PU1each"></span> depths from the goal of prestige.<br>Cost: <span id="prestUpgrs1Cost"></span> prestige points<br>Level: <span id="prestUpgrs1Lvl"></span><br>Currently: <span id="prestUpgrs1Desc"></span></button>
+        <button id="prestUpgrs2" onclick="buyPrestUpgrs(2)" class="prestUpgrs">Universe Slowdown starts 0.2x later (additive).<br>Cost: <span id="prestUpgrs2Cost"></span> prestige points<br>Level: <span id="prestUpgrs2Lvl"></span><br>Currently: <span id="prestUpgrs2Desc"></span></button>
+        <button id="prestUpgrs3" onclick="buyPrestUpgrs(3)" class="prestUpgrs">Improve the depth power effect.<br>Cost: <span id="prestUpgrs3Cost"></span> prestige points<br>Level: <span id="prestUpgrs3Lvl"></span><br>Currently: <span id="prestUpgrs3Desc"></span></button><br>
+        <button id="prestUpgrs4" onclick="buyPrestUpgrs(4)" class="prestUpgrs">Gain 10% more of all quarks.<br>Cost: <span id="prestUpgrs4Cost"></span> prestige points<br>Level: <span id="prestUpgrs4Lvl"></span><br>Currently: <span id="prestUpgrs4Desc"></span></button>
+        <button id="prestUpgrs5" onclick="buyPrestUpgrs(5)" class="prestUpgrs">The Gluon grows 50% faster.<br>Cost: <span id="prestUpgrs5Cost"></span> prestige points<br>Level: <span id="prestUpgrs5Lvl"></span><br>Currently: <span id="prestUpgrs5Desc"></span></button>
+        <button id="prestUpgrs6" onclick="buyPrestUpgrs(6)" class="prestUpgrs">The Gluon effect is stronger.<br>Cost: <span id="prestUpgrs6Cost"></span> prestige points<br>Level: <span id="prestUpgrs6Lvl"></span><br>Currently: <span id="prestUpgrs6Desc"></span></button><br>
+        <button id="prestUpgrs7" onclick="buyPrestUpgrs(7)" class="prestUpgrs">The Gluon grows faster based on your Hadrons<br>Cost: <span id="prestUpgrs7Cost"></span> prestige points<br>Level: <span id="prestUpgrs7Lvl"></span><br>Currently: <span id="prestUpgrs7Desc"></span></button>
+        <button id="prestUpgrs8" onclick="buyPrestUpgrs(8)" class="prestUpgrs">Boosters increase Hadron gain.<br>Cost: <span id="prestUpgrs8Cost"></span> prestige points<br>Level: <span id="prestUpgrs8Lvl"></span><br>Currently: <span id="prestUpgrs8Desc"></span></button>
+        <button id="prestUpgrs9" onclick="buyPrestUpgrs(9)" class="prestUpgrs">Red Quarks give free levels on PU3.<br>Cost: <span id="prestUpgrs9Cost"></span> prestige points<br>Level: <span id="prestUpgrs9Lvl"></span><br>Currently: <span id="prestUpgrs9Desc"></span></button><br>
+        <button id="prestUpgrs10" onclick="buyPrestUpgrs(10)" class="prestUpgrs">Blue Quarks boost the Gluon effect<br>Cost: <span id="prestUpgrs10Cost"></span> prestige points<br>Level: <span id="prestUpgrs10Lvl"></span><br>Currently: <span id="prestUpgrs10Desc"></span></button>
+        <button id="prestUpgrs11" onclick="buyPrestUpgrs(11)" class="prestUpgrs">Green Quarks boost Hadron gain<br>Cost: <span id="prestUpgrs11Cost"></span> prestige points<br>Level: <span id="prestUpgrs11Lvl"></span><br>Currently: <span id="prestUpgrs11Desc"></span></button>
+        <button id="prestUpgrs12" onclick="buyPrestUpgrs(12)" class="prestUpgrs">The Gluon makes PU1 stronger<br>Cost: <span id="prestUpgrs12Cost"></span> prestige points<br>Level: <span id="prestUpgrs12Lvl"></span><br>Currently: <span id="prestUpgrs12Desc"></span></button>
+      </div><br>
+        <button id="unlockQuarks" onclick="unlockQuarks()">Unlock Quarks.<br>Req: 8 Depths</button><br>
+        <button id="unlockHadrons" onclick="unlockHadrons()">Unlock Hadrons.<br>Cost: 100 m Gluon</button><br>
+    </div>
+    <div id="quarks" class="tab">
+      You have <span id="quarksRed"></span> red quarks, providing a <span id="quarksRedMult"></span>x boost to blue quark gain.<br>
+      You have <span id="quarksBlue"></span> blue quarks, providing a <span id="quarksBlueMult"></span>x boost to green quark gain.<br>
+      You have <span id="quarksGreen"></span> green quarks, providing a <span id="quarksGreenMult"></span>x boost to red quark gain.<br>
+      <br>The gluon is <span id="gluonLength"></span> long, multiplying universe growth by <span id="gluonPower"></span>.
+    </div>
+    <div id="hadrons" class="tab">
+      You have <span id="hadronAmt"></span> hadrons, multiplying the beginning of Universal Slowdown and Universal Compaction by <span id="hadronPower"></span>.<br>
+      You have <span id="boosterAmt"></span> hadronic boosters, raising Gluon and Quark power by <span id="boosterPower"></span>.<br>
+      <button id="buyBooster" onclick="buyBooster()">Buy 1 booster.<br>Cost: <span id="boosterCost"></span> hadrons</button>
+    </div>
+  </body>
+</html>
